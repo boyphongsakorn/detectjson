@@ -81,6 +81,7 @@ cron.schedule('0 21 * * *', () => {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
         } catch (error) {
             console.log('error')
+            guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
     }
 });
