@@ -1,5 +1,5 @@
 //simple discordjs bot
-const { MessageAttachment, MessageEmbed, Client, Intents, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { Client, Intents} = require('discord.js');
 var cron = require('node-cron');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
