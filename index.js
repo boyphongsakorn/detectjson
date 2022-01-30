@@ -72,13 +72,13 @@ cron.schedule('5 21 * * *', () => {
             memberarrray.push(memberId)
         }
     });
-    //if pwisetthon not in memberarrray
-    if (!memberarrray.includes('483274198375202819')) {
-        //send message to channel id
-        guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
+    //if 483274198375202819 not in memberarrray
+    if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
         //time out this user id
         try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
+             //send message to channel id
+            guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
             console.log('error')
             guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
