@@ -90,7 +90,7 @@ cron.schedule('*/2 21 * * *', async () => {
         });
     });
     //if 483274198375202819 not in memberarrray
-    if (!memberarrray.includes('483274198375202819')) {
+    /*if (!memberarrray.includes('483274198375202819')) {
         //time out this user id
         try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
@@ -100,7 +100,7 @@ cron.schedule('*/2 21 * * *', async () => {
             console.log('error')
             guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
-    }
+    }*/
 });
 
 client.login(process.env.BOT_TOKEN);
