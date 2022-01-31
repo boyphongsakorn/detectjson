@@ -1,5 +1,5 @@
 //simple discordjs bot
-const { Client, Intents} = require('discord.js');
+const { Client, Intents } = require('discord.js');
 var cron = require('node-cron');
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -72,16 +72,25 @@ cron.schedule('*/2 21 * * *', () => {
             guilds.channels.cache.get('704240947948683355').send(memberName+' ไม่อยู่');
         }*/
     //});
-    guilds.channels.cache.get('706410356360347691').members.forEach((member) => {
+    /*guilds.channels.cache.get('706410356360347691').members.forEach((member) => {
         //get member id
         let memberId = member.user.id;
         //if member id not in memberarrray then add to memberarrray
         if(!memberarrray.includes(memberId)){
             memberarrray.push(memberId)
         }
+    });*/
+    guilds.channels.fetch('706410356360347691').then((channel) => {
+        channel.members.forEach((member) => {
+            let memberId = member.user.id;
+            //if member id not in memberarrray then add to memberarrray
+            if (!memberarrray.includes(memberId)) {
+                memberarrray.push(memberId)
+            }
+        });
     });
     //if 483274198375202819 not in memberarrray
-    /*if (!memberarrray.includes('483274198375202819')) {
+    if (!memberarrray.includes('483274198375202819')) {
         //time out this user id
         try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
@@ -91,7 +100,7 @@ cron.schedule('*/2 21 * * *', () => {
             console.log('error')
             guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
-    }*/
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
