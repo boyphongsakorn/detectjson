@@ -90,17 +90,18 @@ cron.schedule('*/2 21 * * *', async () => {
         });
     });
     //if 483274198375202819 not in memberarrray
-    /*if (!memberarrray.includes('483274198375202819')) {
+    if (!memberarrray.includes('483274198375202819')) {
+        console.log('เทพวุฒิ ไม่อยู่');
         //time out this user id
-        try {
+        /*try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
              //send message to channel id
             guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
             console.log('error')
             guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
-        }
-    }*/
+        }*/
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
