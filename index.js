@@ -73,7 +73,7 @@ cron.schedule('*/2 21 * * *', () => {
         }
     });
     //if 483274198375202819 not in memberarrray
-    if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
+    if (!memberarrray.includes('483274198375202819')) {
         //time out this user id
         try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
