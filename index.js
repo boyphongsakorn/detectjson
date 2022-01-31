@@ -50,8 +50,15 @@ cron.schedule('*/2 21 * * *', () => {
     let guilds = client.guilds.cache.get('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
-    guilds.channels.
-    guilds.channels.cache.get('704240546733883473').members.forEach((member) => {
+    guilds.channels.fetch('704240546733883473').then((channel) => {
+        channel.members.forEach((member) => {
+            let memberName = member.user.username;
+            let memberId = member.user.id;
+            console.log(memberName);
+            memberarrray.push(memberId);
+        });
+    });
+    /*guilds.channels.cache.get('704240546733883473').members.forEach((member) => {
         //console.log(member);
         //get member name
         let memberName = member.user.username;
@@ -64,7 +71,7 @@ cron.schedule('*/2 21 * * *', () => {
             //send message to channel id
             guilds.channels.cache.get('704240947948683355').send(memberName+' ไม่อยู่');
         }*/
-    });
+    //});
     guilds.channels.cache.get('706410356360347691').members.forEach((member) => {
         //get member id
         let memberId = member.user.id;
