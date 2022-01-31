@@ -46,11 +46,11 @@ client.once('ready', () => {
 });
 
 //get user in voice channel
-cron.schedule('*/2 21 * * *', () => {
+cron.schedule('*/2 21 * * *', async () => {
     let guilds = client.guilds.cache.get('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
-    guilds.channels.fetch('704240546733883473').then((channel) => {
+    await guilds.channels.fetch('704240546733883473').then((channel) => {
         channel.members.forEach((member) => {
             let memberName = member.user.username;
             let memberId = member.user.id;
@@ -80,7 +80,7 @@ cron.schedule('*/2 21 * * *', () => {
             memberarrray.push(memberId)
         }
     });*/
-    guilds.channels.fetch('706410356360347691').then((channel) => {
+    await guilds.channels.fetch('706410356360347691').then((channel) => {
         channel.members.forEach((member) => {
             let memberId = member.user.id;
             //if member id not in memberarrray then add to memberarrray
