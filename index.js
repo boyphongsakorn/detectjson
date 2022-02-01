@@ -90,7 +90,7 @@ cron.schedule('*/2 21 * * *', async () => {
         });
     });
     //if 483274198375202819 not in memberarrray
-    if (!memberarrray.includes('483274198375202819')) {
+    if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
         console.log('เทพวุฒิ ไม่อยู่');
         //time out this user id
         /*try {
