@@ -46,7 +46,7 @@ client.once('ready', () => {
 });
 
 //get user in voice channel
-cron.schedule('*/2 21 * * *', async () => {
+cron.schedule('*/10 22 * * *', async () => {
     let guilds = client.guilds.cache.get('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
@@ -91,16 +91,16 @@ cron.schedule('*/2 21 * * *', async () => {
     });
     //if 483274198375202819 not in memberarrray
     if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
-        console.log('เทพวุฒิ ไม่อยู่');
+        //console.log('เทพวุฒิ ไม่อยู่');
         //time out this user id
-        /*try {
+        try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
              //send message to channel id
-            guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
+            //guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
             console.log('error')
-            guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
-        }*/
+            //guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
+        }
     }
 });
 
