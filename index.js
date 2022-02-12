@@ -1,6 +1,7 @@
 //simple discordjs bot
 const { Client, Intents } = require('discord.js');
-var cron = require('node-cron');
+//var cron = require('node-cron');
+var CronJob = require('cron').CronJob;
 
 process.env.TZ = 'Asia/Bangkok';
 
@@ -48,7 +49,8 @@ client.once('ready', () => {
 });
 
 //get user in voice channel
-cron.schedule('*/10 19 * * *', async () => {
+//cron.schedule('*/10 19 * * *', async () => {
+var job = new CronJob('*/10 19 * * *', function() {
     let guilds = client.guilds.fetch('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
@@ -97,7 +99,7 @@ cron.schedule('*/10 19 * * *', async () => {
         //console.log('เทพวุฒิ ไม่อยู่');
         //time out this user id
         try {
-            guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
+            //guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
             //send message to channel id
             //guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
@@ -105,11 +107,14 @@ cron.schedule('*/10 19 * * *', async () => {
             //guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
     }
-});
+//});
+}, null, true, 'Asia/Bangkok');
+
+job.start();
 
 let minapayment = [[2, 491, 2250, 'no']];
 
-cron.schedule('0 21 8-31/2 * *', async () => {
+/*cron.schedule('0 21 8-31/2 * *', async () => {
     let thismonth = false;
     //loop minapayment
     for (let i = 0; i < minapayment.length; i++) {
@@ -155,6 +160,6 @@ cron.schedule('0 21 8-31/2 * *', async () => {
             dm.send('โอนไปยัง \nธนาคารไทยพาณิชย์ \n427-055411-8 \nนาย พงศกร วิเศษธร')
         });
     }
-});
+});*/
 
 client.login(process.env.BOT_TOKEN);
