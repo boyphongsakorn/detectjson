@@ -46,7 +46,7 @@ client.once('ready', () => {
 });
 
 //get user in voice channel
-cron.schedule('*/10 22 * * *', async () => {
+cron.schedule('*/10 20 * * *', async () => {
     let guilds = client.guilds.cache.get('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
