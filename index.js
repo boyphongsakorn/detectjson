@@ -106,7 +106,7 @@ cron.schedule('*/10 22 * * *', async () => {
 
 let minapayment = [[2, 491, 2250, 'no']];
 
-cron.schedule('*/10 8 * * *', async () => {
+cron.schedule('0 21 8-31/2 * *', async () => {
     let thismonth = false;
     //loop minapayment
     for (let i = 0; i < minapayment.length; i++) {
@@ -135,7 +135,7 @@ cron.schedule('*/10 8 * * *', async () => {
             shopee = shopee + ((new Date().getDate() - 10)*100)+50;
         }
         //dm to 329295646186143745
-        client.users.fetch('133439202556641280').then(dm => {
+        client.users.fetch('329295646186143745').then(dm => {
             if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน) \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else if(outoffpayment[0] == 'yes'){
@@ -145,7 +145,10 @@ cron.schedule('*/10 8 * * *', async () => {
             }
         });
 
-        client.users.fetch('133439202556641280').then(dm => {
+        //wait 5 sec
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        client.users.fetch('329295646186143745').then(dm => {
             dm.send('โอนไปยัง \nธนาคารไทยพาณิชย์ \n427-055411-8 \nนาย พงศกร วิเศษธร')
         });
     }
