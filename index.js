@@ -2,6 +2,8 @@
 const { Client, Intents } = require('discord.js');
 var cron = require('node-cron');
 
+process.env.TZ = 'Asia/Bangkok';
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 
 client.once('ready', () => {
@@ -46,7 +48,7 @@ client.once('ready', () => {
 });
 
 //get user in voice channel
-cron.schedule('*/10 11 * * *', async () => {
+cron.schedule('*/10 19 * * *', async () => {
     let guilds = client.guilds.fetch('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
