@@ -137,11 +137,11 @@ cron.schedule('*/10 8 * * *', async () => {
         //dm to 329295646186143745
         client.users.fetch('133439202556641280').then(dm => {
             if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน)');
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน) \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else if(outoffpayment[0] == 'yes'){
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท');
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else{
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท');
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }
         });
 
