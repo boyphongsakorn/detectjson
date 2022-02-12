@@ -136,17 +136,17 @@ cron.schedule('*/10 8 * * *', async () => {
         }
         //dm to 329295646186143745
         client.users.fetch('133439202556641280').then(dm => {
-            if(outoffpayment[0] == 'yes'){
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \n Shopee จำนวน' + shopee + 'บาท');
-            }else if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \n Shopee จำนวน' + shopee + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน)');
+            if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน)');
+            }else if(outoffpayment[0] == 'yes'){
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท');
             }else{
-                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท\n Shopee จำนวน' + shopee + 'บาท');
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท');
             }
         });
 
         client.users.fetch('133439202556641280').then(dm => {
-            dm.send('โอนมาที่ \n ธนาคารไทยพาณิชย์ \n 427-055411-8 \n นาย พงศกร วิเศษธร')
+            dm.send('โอนไปยัง \nธนาคารไทยพาณิชย์ \n427-055411-8 \nนาย พงศกร วิเศษธร')
         });
     }
 });
