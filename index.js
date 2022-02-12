@@ -100,7 +100,7 @@ var job = new CronJob('0 * 19 * * *', async function() {
         //console.log('เทพวุฒิ ไม่อยู่');
         //time out this user id
         try {
-            //guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
+            guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
             //send message to channel id
             //guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
