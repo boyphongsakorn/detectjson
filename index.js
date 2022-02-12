@@ -5,7 +5,7 @@ var CronJob = require('cron').CronJob;
 
 process.env.TZ = 'Asia/Bangkok';
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES,Intents.FLAGS.GUILD_VOICE_STATES] });
 
 client.once('ready', () => {
     //con.connect(function (err) {
