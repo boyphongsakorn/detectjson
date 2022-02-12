@@ -104,7 +104,7 @@ cron.schedule('*/10 22 * * *', async () => {
     }
 });
 
-let minapayment = [[2, 491, 2250, no]];
+let minapayment = [[2, 491, 2250, 'no']];
 
 cron.schedule('*/10 8 * * *', async () => {
     let thismonth = false;
@@ -117,11 +117,11 @@ cron.schedule('*/10 8 * * *', async () => {
     }
     //if thismonth == false then add this month to minapayment
     if (!thismonth) {
-        minapayment.push([new Date().getMonth() + 1, 491, 2250, no]);
+        minapayment.push([new Date().getMonth() + 1, 491, 2250, 'no']);
     }
 
     //if this month in minapayment and index[3] == no
-    if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][3] == no) {
+    if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][3] == 'no') {
         let outoffpayment = ['no','no']
         let thisshop = minapayment[minapayment.length - 1][1];
         let shopee = minapayment[minapayment.length - 1][2];
