@@ -91,6 +91,7 @@ cron.schedule('*/10 19 * * *', async () => {
             }
         });
     });
+    console.log(memberarrray);
     //if 483274198375202819 not in memberarrray
     if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
         //console.log('เทพวุฒิ ไม่อยู่');
