@@ -50,19 +50,19 @@ client.once('ready', () => {
 
 //get user in voice channel
 //cron.schedule('*/10 19 * * *', async () => {
-var job = new CronJob('*/10 19 * * *', async function() {
-    let guilds = client.guilds.fetch('309312041632661504');
+var job = new CronJob('0 */10 19 * * *', async function() {
+    let guilds = await client.guilds.fetch('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
-    await guilds.channels.fetch('704240546733883473').then((channel) => {
+    /*await guilds.channels.fetch('704240546733883473').then((channel) => {
         channel.members.forEach((member) => {
             let memberName = member.user.username;
             let memberId = member.user.id;
             console.log(memberName);
             memberarrray.push(memberId);
         });
-    });
-    /*guilds.channels.cache.get('704240546733883473').members.forEach((member) => {
+    });*/
+    await guilds.channels.cache.get('704240546733883473').members.forEach((member) => {
         //console.log(member);
         //get member name
         let memberName = member.user.username;
@@ -75,24 +75,25 @@ var job = new CronJob('*/10 19 * * *', async function() {
             //send message to channel id
             guilds.channels.cache.get('704240947948683355').send(memberName+' ไม่อยู่');
         }*/
-    //});
-    /*guilds.channels.cache.get('706410356360347691').members.forEach((member) => {
+    });
+    await guilds.channels.cache.get('706410356360347691').members.forEach((member) => {
         //get member id
         let memberId = member.user.id;
         //if member id not in memberarrray then add to memberarrray
         if(!memberarrray.includes(memberId)){
             memberarrray.push(memberId)
         }
-    });*/
-    await guilds.channels.fetch('706410356360347691').then((channel) => {
+    });
+    /*await guilds.channels.fetch('706410356360347691').then((channel) => {
         channel.members.forEach((member) => {
             let memberId = member.user.id;
             //if member id not in memberarrray then add to memberarrray
             if (!memberarrray.includes(memberId)) {
                 memberarrray.push(memberId)
+                console.log(member.user.username);
             }
         });
-    });
+    });*/
     console.log(memberarrray);
     //if 483274198375202819 not in memberarrray
     if (!memberarrray.includes('483274198375202819') && memberarrray.includes('296697021522378752')) {
