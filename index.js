@@ -95,12 +95,59 @@ cron.schedule('*/10 22 * * *', async () => {
         //time out this user id
         try {
             guilds.members.cache.get('483274198375202819').timeout(5 * 60 * 1000, 'เหลี่ยม')
-             //send message to channel id
+            //send message to channel id
             //guilds.channels.cache.get('704240947948683355').send('เทพวุฒิ เหลี่ยม');
         } catch (error) {
             console.log('error')
             //guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
+    }
+});
+
+let minapayment = [[2, 491, 2250, no]];
+
+cron.schedule('*/10 8 * * *', async () => {
+    let thismonth = false;
+    //loop minapayment
+    for (let i = 0; i < minapayment.length; i++) {
+        //if minapayment[i][0] == this month
+        if (minapayment[i][0] == new Date().getMonth() + 1) {
+            thismonth = true;
+        }
+    }
+    //if thismonth == false then add this month to minapayment
+    if (!thismonth) {
+        minapayment.push([new Date().getMonth() + 1, 491, 2250, no]);
+    }
+
+    //if this month in minapayment and index[3] == no
+    if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][3] == no) {
+        let outoffpayment = ['no','no']
+        let thisshop = minapayment[minapayment.length - 1][1];
+        let shopee = minapayment[minapayment.length - 1][2];
+        //if date > 9
+        if (new Date().getDate() > 9) {
+            outoffpayment[0] = 'yes';
+            thisshop = thisshop + ((new Date().getDate() - 9)*50);
+        }
+        if (new Date().getDate() > 10) {
+            outoffpayment[1] = 'yes';
+            shopee = shopee + ((new Date().getDate() - 10)*100)+50;
+        }
+        //dm to 329295646186143745
+        client.users.fetch('133439202556641280').then(dm => {
+            if(outoffpayment[0] == 'yes'){
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \n Shopee จำนวน' + shopee + 'บาท');
+            }else if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \n Shopee จำนวน' + shopee + 'บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน)');
+            }else{
+                dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\n Thisshop จำนวน' + thisshop + 'บาท\n Shopee จำนวน' + shopee + 'บาท');
+            }
+        });
+
+        client.users.fetch('133439202556641280').then(dm => {
+            dm.send('โอนมาที่ \n ธนาคารไทยพาณิชย์ \n 427-055411-8 \n นาย พงศกร วิเศษธร')
+        });
     }
 });
 
