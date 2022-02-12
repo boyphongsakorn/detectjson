@@ -116,7 +116,7 @@ job.start();
 let minapayment = [[2, 491, 2250, 'no']];
 
 //cron.schedule('0 21 8-31/2 * *', async () => {
-var bjob = new CronJob('0 0 21 * * *', async function() {
+var bjob = new CronJob('0 0 21 8-31/2 * *', async function() {
     let thismonth = false;
     //loop minapayment
     for (let i = 0; i < minapayment.length; i++) {
