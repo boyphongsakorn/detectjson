@@ -115,7 +115,8 @@ job.start();
 
 let minapayment = [[2, 491, 2250, 'no']];
 
-/*cron.schedule('0 21 8-31/2 * *', async () => {
+//cron.schedule('0 21 8-31/2 * *', async () => {
+var bjob = new CronJob('0 0 21 * * *', async function() {
     let thismonth = false;
     //loop minapayment
     for (let i = 0; i < minapayment.length; i++) {
@@ -161,6 +162,9 @@ let minapayment = [[2, 491, 2250, 'no']];
             dm.send('โอนไปยัง \nธนาคารไทยพาณิชย์ \n427-055411-8 \nนาย พงศกร วิเศษธร')
         });
     }
-});*/
+//});
+}, null, true, 'Asia/Bangkok');
+
+bjob.start();
 
 client.login(process.env.BOT_TOKEN);
