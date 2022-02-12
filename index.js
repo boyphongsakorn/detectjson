@@ -50,7 +50,7 @@ client.once('ready', () => {
 
 //get user in voice channel
 //cron.schedule('*/10 19 * * *', async () => {
-var job = new CronJob('0 * 19 * * *', async function() {
+var job = new CronJob('0 */6 20 * * *', async function() {
     let guilds = await client.guilds.fetch('309312041632661504');
     let memberarrray = [];
     //console.log(guilds);
