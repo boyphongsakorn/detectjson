@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค่าผ่อน</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@200&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Mitr', sans-serif;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <p id="main">คุณมีรายการผ่อนที่ต้องจัดการ</p>
+    <p id="thisshop">Thisshop จำนวน 491 บาท</p>
+    <p id="shopee">Shopee จำนวน 2250 บาท</p>
+    <p id="warningprice">ค่าเสี่ยงโดนฟ้อง จำนวน 0 บาท</p>
+    <script>
+        let thismonth = 'no';
+        if (new Date().getDate() > 9){
+            document.getElementById('thisshop').innerText = 'Thisshop จำนวน '+(491+(50*(new Date().getDate()-9)))+' บาท (เลยกำหนดชำระมาทั้งหมด '+(new Date().getDate()-9)+' วัน)';
+        }
+        if (new Date().getDate() > 10){
+            document.getElementById('shopee').innerText = 'Shopee จำนวน '+(2250+(100*(new Date().getDate()-10))+50)+' บาท (เลยกำหนดชำระมาทั้งหมด '+(new Date().getDate()-10)+' วัน)';
+        }
+        if (new Date().getDate() > 15){
+            document.getElementById('warningprice').innerText = 'ค่าเสี่ยงโดนฟ้อง จำนวน '+(20*(new Date().getDate() - 15))+' บาท (เลยกำหนดชำระมาทั้งหมด '+(new Date().getDate()-15)+' วัน)';
+        }
+        //if thismonth = yes hide all p tag
+        if (thismonth == 'yes'){
+            document.getElementById('thisshop').style.display = 'none';
+            document.getElementById('shopee').style.display = 'none';
+            document.getElementById('warningprice').style.display = 'none';
+            document.getElementById('main').innerText = 'คุณจ่ายทั้งหมดแล้ว';
+        }
+    </script>
+</body>
+</html>

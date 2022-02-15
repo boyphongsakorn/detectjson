@@ -116,7 +116,7 @@ job.start();
 let minapayment = [[2, 491, 2250, 'no']];
 
 //cron.schedule('0 21 8-31/2 * *', async () => {
-var bjob = new CronJob('0 0 0 8-31/2 * *', async function() {
+var bjob = new CronJob('0 0 0 */2 * *', async function() {
     let thismonth = false;
     //loop minapayment
     for (let i = 0; i < minapayment.length; i++) {
@@ -136,13 +136,17 @@ var bjob = new CronJob('0 0 0 8-31/2 * *', async function() {
         let thisshop = minapayment[minapayment.length - 1][1];
         let shopee = minapayment[minapayment.length - 1][2];
         //if date > 9
-        if (new Date().getDate() > 9) {
+        if (new Date().getDate() > 9 && outoffpayment[0] == 'no') {
             outoffpayment[0] = 'yes';
             thisshop = thisshop + ((new Date().getDate() - 9)*50);
+        }else{
+            thisshop = 0
         }
-        if (new Date().getDate() > 10) {
+        if (new Date().getDate() > 10 && outoffpayment[1] == 'no') {
             outoffpayment[1] = 'yes';
             shopee = shopee + ((new Date().getDate() - 10)*100)+50;
+        }else{
+            shopee = 0
         }
         //dm to 329295646186143745
         client.users.fetch('329295646186143745').then(dm => {
