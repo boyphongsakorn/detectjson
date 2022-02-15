@@ -113,7 +113,7 @@ var job = new CronJob('0 */6 20 * * *', async function() {
 
 job.start();
 
-let minapayment = [[2, 491, 2250, 'no']];
+let minapayment = [[2, 491, 2250, 'yes']];
 
 //cron.schedule('0 21 8-31/2 * *', async () => {
 var bjob = new CronJob('0 0 0 */2 * *', async function() {
@@ -132,7 +132,7 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
 
     //if this month in minapayment and index[3] == no
     if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][3] == 'no') {
-        let outoffpayment = ['no','no']
+        let outoffpayment = ['yes','yes']
         let thisshop = minapayment[minapayment.length - 1][1];
         let shopee = minapayment[minapayment.length - 1][2];
         //if date > 9
