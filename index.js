@@ -113,7 +113,7 @@ var job = new CronJob('0 */6 20 * * *', async function() {
 
 job.start();
 
-let minapayment = [[2, 491, 2250, 'yes']];
+let minapayment = [[2, 491, 2250, ['yes','yes'], 'yes']];
 
 //cron.schedule('0 21 8-31/2 * *', async () => {
 var bjob = new CronJob('0 0 0 */2 * *', async function() {
@@ -127,12 +127,12 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
     }
     //if thismonth == false then add this month to minapayment
     if (!thismonth) {
-        minapayment.push([new Date().getMonth() + 1, 491, 2250, 'no']);
+        minapayment.push([new Date().getMonth() + 1, 491, 2250 ,  ['no','no'], 'no']);
     }
 
     //if this month in minapayment and index[3] == no
-    if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][3] == 'no') {
-        let outoffpayment = ['yes','yes']
+    if (minapayment[minapayment.length - 1][0] == new Date().getMonth() + 1 && minapayment[minapayment.length - 1][4] == 'no') {
+        let outoffpayment = [minapayment[minapayment.length - 1][3][0],minapayment[minapayment.length - 1][3][1]]
         let thisshop = minapayment[minapayment.length - 1][1];
         let shopee = minapayment[minapayment.length - 1][2];
         //if date > 9
@@ -150,9 +150,9 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
         }
         //dm to 329295646186143745
         client.users.fetch('329295646186143745').then(dm => {
-            if(outoffpayment[0] == 'yes' && outoffpayment[1] == 'yes'){
+            if(outoffpayment[0] == 'no' && outoffpayment[1] == 'no'){
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน) \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
-            }else if(outoffpayment[0] == 'yes'){
+            }else if(outoffpayment[0] == 'no'){
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else{
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
