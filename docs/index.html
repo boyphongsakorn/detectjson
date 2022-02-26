@@ -30,6 +30,8 @@
         }
         if (new Date().getDate() > 15){
             document.getElementById('warningprice').innerText = 'ค่าเสี่ยงโดนฟ้อง จำนวน '+(20*(new Date().getDate() - 15))+' บาท (เลยกำหนดชำระมาทั้งหมด '+(new Date().getDate()-15)+' วัน)';
+        }else{
+            document.getElementById('warningprice').style.display = 'none';
         }
         //if thismonth = yes hide all p tag
         if (thismonth == 'yes'){
