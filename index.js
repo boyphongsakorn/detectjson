@@ -113,7 +113,7 @@ var job = new CronJob('0 */6 20 * * *', async function() {
 
 job.start();
 
-let minapayment = [[2, 491, 2250, ['yes','yes'], 'yes']];
+let minapayment = [[2, 491, 2250, ['yes','yes'], 'yes'],[3, 491, 2250, ['no','no'], 'no']];
 
 //cron.schedule('0 21 8-31/2 * *', async () => {
 var bjob = new CronJob('0 0 0 */2 * *', async function() {
