@@ -149,7 +149,7 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
             shopee = 0
         }
         //dm to 329295646186143745
-        client.users.fetch('329295646186143745').then(dm => {
+        /*client.users.fetch('329295646186143745').then(dm => {
             if(outoffpayment[0] == 'no' && outoffpayment[1] == 'no'){
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน) \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else if(outoffpayment[0] == 'no'){
@@ -157,10 +157,10 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
             }else{
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }
-        });
+        });*/
         
         //dm to 133439202556641280
-        client.users.fetch('133439202556641280').then(dm => {
+        /*client.users.fetch('133439202556641280').then(dm => {
             if(outoffpayment[0] == 'no' && outoffpayment[1] == 'no'){
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 9)+' วัน) \nShopee จำนวน ' + shopee + ' บาท (เลยวันผ่อนมาทั้งหมด '+(new Date().getDate() - 10)+' วัน) \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }else if(outoffpayment[0] == 'no'){
@@ -168,14 +168,14 @@ var bjob = new CronJob('0 0 0 */2 * *', async function() {
             }else{
                 dm.send('คุณมีรายการผ่อนที่ต้องจัดการ\nThisshop จำนวน ' + thisshop + ' บาท\nShopee จำนวน' + shopee + 'บาท \nรวมทั้งหมดเป็น ' + (thisshop + shopee) + ' บาท');
             }
-        });
+        });*/
 
         //wait 5 sec
-        await new Promise(resolve => setTimeout(resolve, 5000));
+        /*await new Promise(resolve => setTimeout(resolve, 5000));
 
         client.users.fetch('329295646186143745').then(dm => {
             dm.send('โอนไปยัง \nธนาคารไทยพาณิชย์ \n427-055411-8 \nนาย พงศกร วิเศษธร')
-        });
+        });*/
     }
 //});
 }, null, true, 'Asia/Bangkok');
