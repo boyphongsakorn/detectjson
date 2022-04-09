@@ -108,6 +108,8 @@ var job = new CronJob('0 */6 20 * * *', async function() {
             console.log('error')
             guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
+    }else{
+        guilds.members.cache.get('483274198375202819').setNickname('')
     }
 //});
 }, null, true, 'Asia/Bangkok');
