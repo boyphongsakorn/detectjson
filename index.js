@@ -106,7 +106,7 @@ var job = new CronJob('0 */6 20 * * *', async function() {
             guilds.members.cache.get('483274198375202819').setNickname('เมล\' อ่าส์')
         } catch (error) {
             console.log('error')
-            guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
+            //guilds.channels.cache.get('704240947948683355').send('ไม่ตรวจพบเทพวุฒิในดิสนี้');
         }
     }else{
         guilds.members.cache.get('483274198375202819').setNickname('')
